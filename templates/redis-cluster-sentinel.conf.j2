@@ -1,0 +1,11 @@
+sentinel monitor {{ redis_cluster_name }} {{ redis_cluster_master_host }} {{ redis_cluster_node_port }} 2
+bind 0.0.0.0
+port {{ redis_cluster_sentinel_port }}
+#sentinel announce-ip 10.10.10.146
+sentinel announce-ip {{ ansible_ens33.ipv4.address }}
+sentinel down-after-milliseconds {{ redis_cluster_name }} 6001
+sentinel failover-timeout {{ redis_cluster_name }} 60000
+sentinel parallel-syncs {{ redis_cluster_name }} 1
+daemonize yes
+logfile {{ redis_cluster_logs_home }}/redis-sentinel.log
+pidfile {{ redis_cluster_runtime_home }}/redis-sentinel.pid

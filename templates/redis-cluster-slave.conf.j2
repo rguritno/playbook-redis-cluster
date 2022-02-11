@@ -1,0 +1,12 @@
+slaveof {{ redis_cluster_master_host }} {{ redis_cluster_node_port }}
+bind 0.0.0.0
+port {{ redis_cluster_node_port }}
+pidfile {{ redis_cluster_runtime_home }}/redis-cluster.pid
+logfile {{ redis_cluster_logs_home }}/redis-cluster.log
+dir {{ redis_cluster_data_home }}
+protected-mode no
+tcp-backlog 511
+timeout 0
+tcp-keepalive 300
+supervised systemd
+daemonize yes

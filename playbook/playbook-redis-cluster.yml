@@ -1,0 +1,7 @@
+---
+- name: Configure Redis Cluster
+  hosts: "{{ nodes }}"
+  become: yes
+  gather_facts: True
+  roles:
+    - redis-cluster

@@ -1,0 +1,12 @@
+---
+- include: master.yml
+  tags:
+    - master
+
+- include: slave.yml
+  tags:
+    - slave
+
+- include: sentinel.yml
+  tags:
+    - sentinel

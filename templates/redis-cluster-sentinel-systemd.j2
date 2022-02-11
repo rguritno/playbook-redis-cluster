@@ -1,0 +1,22 @@
+[Unit]
+Description=Redis relication Sentinel instance
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/redis-server {{ redis_cluster_config_home }}/redis-sentinel.conf --sentinel
+PIDFile={{ redis_cluster_runtime_home }}/redis-sentinel.pid
+TimeoutStopSec=0
+Restart=always
+User=redis
+Group=redis
+
+ExecStop=/bin/kill -s TERM $MAINPID
+
+ProtectSystem=true
+ReadWriteDirectories=-{{ redis_cluster_logs_home }}
+ReadWriteDirectories=-{{ redis_cluster_config_home }}
+ReadWriteDirectories=-{{ redis_cluster_runtime_home }}
+
+[Install]
+WantedBy=multi-user.target
