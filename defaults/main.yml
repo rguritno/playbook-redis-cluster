@@ -9,3 +9,5 @@ redis_cluster_node_port: 6389
 redis_cluster_master_host: "redis1"
 redis_cluster_name: "master"
 redis_cluster_sentinel_port: 26389
+redis-cluster_service: "redis-cluster.service"
+redis-sentinel_service: "redis-sentinel.service"
