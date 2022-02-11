@@ -1,6 +1,6 @@
-Readme
+# Readme First
 
-This Playbook only for purpose create redis cluster for active passive and failover using sentinel. This playbook alse can create multiple redis cluster in server existing
+This Playbook only for purpose create redis cluster for active passive and failover using sentinel. This playbook also can create multiple redis cluster in server existing
 
 # Run Playbook
 
