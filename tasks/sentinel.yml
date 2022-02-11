@@ -33,7 +33,7 @@
 - name: "Copy Redis replication Sentinel systemd unit file"
   template:
     src: "templates/redis-cluster-sentinel-systemd.j2"
-    dest: "/etc/systemd/system/redis-sentinel.service"
+    dest: "/etc/systemd/system/{{ redis-sentinel_service }}"
     owner: "root"
     group:  "root"
     mode: 0644
